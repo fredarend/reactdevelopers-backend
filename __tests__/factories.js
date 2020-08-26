@@ -20,4 +20,11 @@ factory.define('Developer', Technology, {
   url_linkedin: faker.internet.domainName(),
 });
 
+factory.define('Developer', Technology, {
+  name: faker.name.findName(),
+  email: faker.internet.email(),
+  age: faker.random.number(),
+  url_linkedin: faker.internet.domainName(),
+});
+
 export default factory;
