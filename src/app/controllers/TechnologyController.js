@@ -8,7 +8,6 @@ class TechController {
     });
 
     if (!(await schema.isValid(req.body))) {
-      console.log('campo inv.');
       return res.status(400).json({ error: 'Falha na validação dos campos!' });
     }
 

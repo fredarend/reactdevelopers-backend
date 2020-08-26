@@ -13,4 +13,11 @@ factory.define('Technology', Technology, {
   technology: faker.lorem.word(),
 });
 
+factory.define('Developer', Technology, {
+  name: faker.name.findName(),
+  email: faker.internet.email(),
+  age: faker.random.number(),
+  url_linkedin: faker.internet.domainName(),
+});
+
 export default factory;
