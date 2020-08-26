@@ -35,7 +35,7 @@ describe('Technology', () => {
 
   it('Não possibilitar cadastro de uma tecnologia campos inválidos', async () => {
     const technology = await factory.attrs('Technology', {
-      technology: '',
+      name: '',
     });
 
     const response = await request(app)

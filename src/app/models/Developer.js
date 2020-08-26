@@ -1,10 +1,13 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Technology extends Model {
+class Developer extends Model {
   static init(sequelize) {
     super.init(
       {
         name: Sequelize.STRING,
+        email: Sequelize.STRING,
+        age: Sequelize.INTEGER,
+        url_linkedin: Sequelize.STRING,
       },
       {
         sequelize,
@@ -15,12 +18,12 @@ class Technology extends Model {
   }
 
   static associate(models) {
-    this.belongsToMany(models.Developer, {
-      foreignKey: 'developer_id',
+    this.belongsToMany(models.Technology, {
+      foreignKey: 'technology_id',
       through: 'developers_technologies',
-      as: 'developers',
+      as: 'technologies',
     });
   }
 }
 
-export default Technology;
+export default Developer;
