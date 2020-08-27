@@ -11,6 +11,7 @@ class UserController {
       password: Yup.string()
         .required()
         .min(6),
+      url_linkedin: Yup.string().required(),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -23,12 +24,13 @@ class UserController {
       return res.status(400).json({ error: 'O email já existe!' });
     }
 
-    const { id, name, email } = await User.create(req.body);
+    const { id, name, email, url_linkedin } = await User.create(req.body);
 
     return res.json({
       id,
       name,
       email,
+      url_linkedin,
     });
   }
 }
