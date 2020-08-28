@@ -19,7 +19,8 @@ class Developer extends Model {
 
   static associate(models) {
     this.belongsToMany(models.Technology, {
-      foreignKey: 'technology_id',
+      foreignKey: 'developer_id',
+      otherKey: 'technology_id',
       through: 'developers_technologies',
       as: 'technologies',
     });
