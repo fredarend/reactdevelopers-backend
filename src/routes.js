@@ -13,12 +13,12 @@ const routes = new Router();
 routes.post('/sessions', SessionController.store);
 routes.post('/users', UserController.store);
 
-routes.use(authMiddleware);
+// routes.use(authMiddleware);
 
 routes.post('/technologies', TechnologyController.store);
 
-routes.post('/developers', DeveloperController.store);
 routes.get('/developers', DeveloperController.index);
+routes.post('/developers', DeveloperController.store);
 routes.put('/developers/:id', DeveloperController.update);
 routes.delete('/developers/:id', DeveloperController.delete);
 

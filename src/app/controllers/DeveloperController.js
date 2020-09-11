@@ -6,30 +6,28 @@ import Technologies from '../models/Technology';
 
 class DeveloperController {
   async index(req, res) {
-    const { tech } = req.query;
+    const { id } = req.query;
 
-    if (tech) {
-      const techs = tech.split(',');
-      const developers = await Developer.findAll({
+    if (id) {
+      const developer = await Developer.findByPk(id, {
         attributes: ['id', 'name', 'email', 'age', 'url_linkedin'],
         include: [
           {
             model: Technologies,
             as: 'technologies',
-            attributes: ['id', 'name'],
-            where: { [Op.or]: [{ id: techs }] },
+            attributes: [['id', 'value'], ['name', 'label']],
             through: { attributes: [] },
           },
         ],
       });
 
-      if (!developers.length) {
-        return res.status(400).json({
-          Message: 'There are no developers with this technology',
+      if (!developer) {
+        return res.status(200).json({
+          Message: 'There are no developers with this id',
         });
       }
 
-      return res.json({ developers });
+      return res.json({ developer });
     }
 
     const developers = await Developer.findAll({
@@ -46,7 +44,7 @@ class DeveloperController {
 
     if (!developers.length) {
       return res
-        .status(400)
+        .status(200)
         .json({ Message: 'There are no registered developers' });
     }
 
@@ -113,7 +111,7 @@ class DeveloperController {
 
     const { technologies, ...dev } = req.body;
 
-    await Developer.update({ dev }, { where: { id } });
+    await developer.update(dev);
 
     if (technologies) {
       await developer.setTechnologies(technologies);

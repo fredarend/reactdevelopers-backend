@@ -4,12 +4,12 @@ import app from '../../src/app';
 import factory from '../factories';
 import truncate from '../util/truncate';
 
-describe('Autenticação', () => {
+describe('Session', () => {
   beforeEach(async () => {
     await truncate();
   });
 
-  it('A autenticação deve conter credenciais válidas', async () => {
+  it('Authentication must contain valid credentials', async () => {
     const user = await factory.create('User', {
       password: '123456',
     });
@@ -21,7 +21,7 @@ describe('Autenticação', () => {
     expect(response.status).toBe(200);
   });
 
-  it('Não deve ser permitida a autenticação com credenciais inválidas', async () => {
+  it('Authentication with invalid credentials should not be allowed', async () => {
     const user = await factory.create('User', {
       password: '444333',
     });
@@ -33,7 +33,7 @@ describe('Autenticação', () => {
     expect(response.status).toBe(401);
   });
 
-  it('O retorno deve conter um token de autenticação', async () => {
+  it('The return must contain an authentication token', async () => {
     const user = await factory.create('User', {
       password: '444333',
     });

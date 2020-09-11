@@ -9,7 +9,7 @@ describe('Developer', () => {
     await truncate();
   });
 
-  it('Não possibilitar cadastro de um desenvolvedor com campos inválidos', async () => {
+  it('It should not allow the registration of a developer with invalid fields', async () => {
     const developer = await factory.attrs('Developer', {
       name: '',
     });
@@ -25,14 +25,14 @@ describe('Developer', () => {
     expect(response.status).toBe(400);
   });
 
-  it('Possibilitar cadastro de uma tecnologia', async () => {
+  it('It should be possible to register a developer', async () => {
     const developer = await factory.attrs('Developer');
 
     const response = await request(app)
       .post('/developers')
       .set(
         'Authorization',
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTk4NDA1Mjg4LCJleHAiOjE1OTkwMTAwODh9.0DwQav-eEz5p7ahQcs7v3fe4aHM5PvO-NzDjyRvsSGo'
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTk4NjM1NjQ1LCJleHAiOjE1OTkyNDA0NDV9.14ItnZBLBB9OWvLo2zCVzIyq1gwx7lj-eZn0YXhWfvg'
       )
       .send(developer);
 
