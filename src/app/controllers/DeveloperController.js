@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import { Op } from 'sequelize';
 import Developer from '../models/Developer';
 import DeveloperTechnology from '../models/DeveloperTechnology';
 import Technologies from '../models/Technology';
@@ -99,14 +98,14 @@ class DeveloperController {
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Falha na validação dos campos!' });
+      return res.status(200).json({ error: 'Falha na validação dos campos!' });
     }
 
     const { id } = req.params;
     const developer = await Developer.findByPk(id);
 
     if (!developer) {
-      return res.status(400).json({ error: 'Developer does not exists.' });
+      return res.status(200).json({ error: 'Developer does not exists.' });
     }
 
     const { technologies, ...dev } = req.body;
