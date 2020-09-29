@@ -30,7 +30,7 @@ To start the backend, just run the command yarn dev at the root of the applicati
 ```sh
 Add an administrator user via the route:
 	Type: POST
-	http://yourbackendroute/users
+	http://yourbackendaddress/users
 	By sending a JSON with the information: name, email and password in the request body.
 ```
 Example request:
