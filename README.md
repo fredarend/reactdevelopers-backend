@@ -4,7 +4,7 @@
 </p>
 
 ## Description
-Backend of the Devs and Tecnologies application created for testing purposes for a software development company.
+Backend of the React Developers application created for testing purposes for a software development company.
 
 ### ✨ [Demo](https://reactdevelopers.fredericobinsfeld.com.br)
 User: admin@admin.com
