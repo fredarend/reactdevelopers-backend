@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Backend of Devs and Technologies 👋</h1>
+<h1 align="center">Welcome to Backend of React Developers 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" /> <img alt="Node" src="https://img.shields.io/badge/node-v12.11.0-green" />  <img alt="Node" src="https://img.shields.io/badge/sequelize-v5.9.4-yellow" /> <img alt="Node" src="https://img.shields.io/badge/db-postgres-lightgrey" /> <img alt="Node" src="https://img.shields.io/badge/eslint-v5.16.0-red" />
 </p>
