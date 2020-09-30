@@ -4,10 +4,10 @@
 </p>
 
 ## Description
-Backend of the React Developers application created for testing purposes for a software development company.
+Backend of the React Developers, application developed with the purpose of evaluation, to compete for a vacancy in software development company.
 
 ### ✨ [Demo](https://reactdevelopers.fredericobinsfeld.com.br)
-User: admin@admin.com
+User: admin@admin.com <br>
 Password: admin123
 
 ## Install
